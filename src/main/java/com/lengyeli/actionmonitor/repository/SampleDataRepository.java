@@ -1,7 +1,6 @@
 package com.lengyeli.actionmonitor.repository;
 
 import com.lengyeli.actionmonitor.model.SampleData;
-import javassist.tools.rmi.Sample;
 import org.springframework.data.repository.CrudRepository;
 
 /**

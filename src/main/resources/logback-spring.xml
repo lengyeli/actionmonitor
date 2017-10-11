@@ -2,17 +2,17 @@
 <configuration scan="true" scanPeriod="120 seconds">
 <property name="LOG_PATTERN" value="%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n" />
 
-<!--<appender name="SERVER_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-    <!--<file>./logs/server.log</file>-->
-    <!--<encoder>-->
-        <!--<charset>UTF-8</charset>-->
-        <!--<pattern>${LOG_PATTERN}</pattern>-->
-    <!--</encoder>-->
+<appender name="SERVER_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>./logs/server.log</file>
+    <encoder>
+        <charset>UTF-8</charset>
+        <pattern>${LOG_PATTERN}</pattern>
+    </encoder>
 
-    <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-        <!--<fileNamePattern>./logs/server.%d{yyyy-MM-dd}.log</fileNamePattern>-->
-    <!--</rollingPolicy>-->
-<!--</appender>-->
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <fileNamePattern>./logs/server.%d{yyyy-MM-dd}.log</fileNamePattern>
+    </rollingPolicy>
+</appender>
 
 <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
@@ -21,17 +21,17 @@
     </encoder>
 </appender>
 
-<!--<appender name="APP_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-    <!--<file>./logs/application.log</file>-->
-    <!--<encoder>-->
-        <!--<charset>UTF-8</charset>-->
-        <!--<pattern>${LOG_PATTERN}</pattern>-->
-    <!--</encoder>-->
+<appender name="APP_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>./logs/application.log</file>
+    <encoder>
+        <charset>UTF-8</charset>
+        <pattern>${LOG_PATTERN}</pattern>
+    </encoder>
 
-    <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-        <!--<fileNamePattern>./logs/szlkk_%d{yyyy-MM-dd}.log</fileNamePattern>-->
-    <!--</rollingPolicy>-->
-<!--</appender>-->
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <fileNamePattern>./logs/actionmonitor_%d{yyyy-MM-dd}.log</fileNamePattern>
+    </rollingPolicy>
+</appender>
 
 <logger name="PERF_LOG" level="DEBUG" additivity="false">
     <appender-ref ref="CONSOLE" />
@@ -39,7 +39,7 @@
 
 <logger name="com.lengyeli.actionmonitor" level="DEBUG" additivity="false">
     <appender-ref ref="CONSOLE" />
-    <!--<appender-ref ref="APP_FILE" />-->
+    <appender-ref ref="APP_FILE" />
 </logger>
 
 <root level="INFO">

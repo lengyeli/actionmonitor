@@ -70,8 +70,8 @@ public class ActionRestController {
         SampleData sampleData = sampleDataService.findById(id);
 
         if (sampleData == null) {
-            logger.info("Unable to delete. SampleData with id {} not found", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            logger.error("Unable to delete. SampleData with id {} not found", id);
+            return new ResponseEntity<>("Not Found", HttpStatus.NOT_FOUND);
         }
 
         sampleDataService.delete(id);
@@ -92,8 +92,8 @@ public class ActionRestController {
         SampleData sampleData = sampleDataService.findById(id);
 
         if (sampleData == null) {
-            logger.info("Unable to update. SampleData with id {} not found", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            logger.error("Unable to update. SampleData with id {} not found", id);
+            return new ResponseEntity<>("Not Found", HttpStatus.NOT_FOUND);
         }
 
         sampleDataService.update(id, text);
