@@ -25,11 +25,11 @@ public class JmsReceiver {
         this.websocket = websocket;
     }
 
-    @JmsListener(destination = "mailbox", containerFactory = "myFactory")
+    @JmsListener(destination = "queue/trigger", containerFactory = "myFactory")
     public void receiveMessage(JmsMessage jmsMessage) {
         logger.info("Received jms message <" + jmsMessage + ">");
 
-        websocket.convertAndSend("/topic/greetings", new WebsocketMessage(jmsMessage.getBody()));
+        websocket.convertAndSend("/topic/actionmonitor", new WebsocketMessage(jmsMessage.getBody()));
         logger.info("Send websocket message <" + jmsMessage.getBody() + ">");
     }
 

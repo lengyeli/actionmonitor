@@ -1,13 +1,13 @@
-package com.lengyeli.actionmonitor.model;
+package com.lengyeli.actionmonitor.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
 
 /**
+ * On Application startup initialize db Triggers and Corresponding Java handlers.
  * Created by ilengyel on 2017. 10. 08..
  */
 @Component
@@ -18,8 +18,6 @@ public class TriggerInitializer {
     @Autowired
     public TriggerInitializer(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-        //TODO ezt megnézni hogy lehet jobban
-//        createTriggers();
     }
 
     @PostConstruct

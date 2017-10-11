@@ -22,6 +22,6 @@ public class UpdateTrigger extends TriggerAdapter {
         String message = ResultSetUtil.createChangeResultMessage(newResultSet) + " was updated";
         logger.info(message);
 
-        BaseActionTrigger.jmsTemplate.convertAndSend("mailbox", new JmsMessage(message));
+        BaseActionTrigger.jmsTemplate.convertAndSend("queue/trigger", new JmsMessage(message));
     }
 }

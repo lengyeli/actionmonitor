@@ -4,7 +4,6 @@ import com.lengyeli.actionmonitor.model.JmsMessage;
 import org.h2.tools.TriggerAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,7 +14,6 @@ import java.sql.SQLException;
  * <p>
  * Created by ilengyel on 2017. 10. 08..
  */
-@Controller
 public class InsertTrigger extends TriggerAdapter {
     private static Logger logger = LoggerFactory.getLogger(InsertTrigger.class);
 
@@ -24,6 +22,6 @@ public class InsertTrigger extends TriggerAdapter {
         String message = ResultSetUtil.createChangeResultMessage(newResultSet) + " was inserted";
         logger.info(message);
 
-        BaseActionTrigger.jmsTemplate.convertAndSend("mailbox", new JmsMessage(message));
+        BaseActionTrigger.jmsTemplate.convertAndSend("queue/trigger", new JmsMessage(message));
     }
 }

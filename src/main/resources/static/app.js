@@ -1,11 +1,11 @@
 $(document).ready(function(){
     var stompClient = null;
 
-    function sendName() {
-        stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
-    }
+    // function sendName() {
+    //     stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
+    // }
 
-    function showGreeting(message) {
+    function showDbActionEvents(message) {
         $("#dbChangeEvents").append("<tr><td>" + message + "</td></tr>");
     }
 
@@ -16,8 +16,8 @@ $(document).ready(function(){
 
             $("#titleLabel").text('Websocket connection established');
             console.log('Connected: ' + frame);
-            stompClient.subscribe('/topic/greetings', function (websocketMessage) {
-                showGreeting(JSON.parse(websocketMessage.body).content);
+            stompClient.subscribe('/topic/actionmonitor', function (websocketMessage) {
+                showDbActionEvents(JSON.parse(websocketMessage.body).content);
             });
         });
     });

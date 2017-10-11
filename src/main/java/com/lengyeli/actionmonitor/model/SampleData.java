@@ -1,11 +1,10 @@
 package com.lengyeli.actionmonitor.model;
 
-/**
- * Created by ilengyel on 2017. 10. 09..
- */
-
 import javax.persistence.*;
 
+/**
+ * DB table for representing application functionality
+ */
 @Entity
 public class SampleData {
 

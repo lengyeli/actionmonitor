@@ -28,6 +28,11 @@
  /delete/{id}        - Delete a row with the given {id}  
  /update/{id}/{text} - Update row with {id} and set {text}  
  
+**Build**  
+ In project directory: 
+ mvn clean package  
+ java -jar target/action-monitor-0.0.1-SNAPSHOT.jar
+ 
 **Logs**  
 
 Log files are located under application directory logs/ folder

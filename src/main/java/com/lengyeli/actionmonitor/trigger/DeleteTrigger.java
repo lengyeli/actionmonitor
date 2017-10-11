@@ -22,6 +22,6 @@ public class DeleteTrigger extends TriggerAdapter {
         String message = ResultSetUtil.createChangeResultMessage(oldResultSet) + " was deleted";
         logger.info(message);
 
-        BaseActionTrigger.jmsTemplate.convertAndSend("mailbox", new JmsMessage(message));
+        BaseActionTrigger.jmsTemplate.convertAndSend("queue/trigger", new JmsMessage(message));
     }
 }
