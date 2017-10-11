@@ -14,8 +14,9 @@
  
  On clients it displays a messaage about the db action.
 
-**Basic Endpoints**
- /version - Shows the application version
+**Basic Endpoints**  
+
+ /version - Shows the application version  
  /status - Shows that the application started.
 
 **Manual testing**
@@ -23,10 +24,11 @@
  For manual testing created some endpoints. The main goal was to do these tests without necessity any third party application.
  
  These endpoints are:
- /insert/{text}      - Insert a row with the given {text}
- /delete/{id}        - Delete a row with the given {id}
- /update/{id}/{text} - Update row with {id} and set {text}
+ /insert/{text}      - Insert a row with the given {text}  
+ /delete/{id}        - Delete a row with the given {id}  
+ /update/{id}/{text} - Update row with {id} and set {text}  
  
-**Logs**
+**Logs**  
+
 Log files are located under application directory logs/ folder
  
